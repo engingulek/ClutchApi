@@ -1,11 +1,10 @@
 package com.example.ClutchApi.business.abstracts;
 
-import com.example.ClutchApi.core.request.LoginRequest;
-import com.example.ClutchApi.core.request.UserRequest;
+
+import com.example.ClutchApi.core.request.CreateUserRequest;
 import com.example.ClutchApi.core.response.ApiResponse;
-import com.example.ClutchApi.entities.Users;
+import com.example.ClutchApi.core.response.CreateUserResponse;
 
 public interface UsersService {
-    ApiResponse<Users> createUser(UserRequest userRequest);
-     ApiResponse<Users> login(LoginRequest loginRequest);
+       ApiResponse<CreateUserResponse> createUser(CreateUserRequest createUserRequest);
 }

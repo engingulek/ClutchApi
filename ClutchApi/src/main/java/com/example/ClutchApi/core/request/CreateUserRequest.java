@@ -9,9 +9,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class UserRequest {
-    String id;
+public class CreateUserRequest {
+    String uuid;
     String nameSurname;
     String email;
-    String password;
 }

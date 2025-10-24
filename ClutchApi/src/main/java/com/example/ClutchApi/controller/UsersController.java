@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ClutchApi.business.abstracts.UsersService;
-import com.example.ClutchApi.core.request.LoginRequest;
-import com.example.ClutchApi.core.request.UserRequest;
+import com.example.ClutchApi.core.request.CreateUserRequest;
 import com.example.ClutchApi.core.response.ApiResponse;
-import com.example.ClutchApi.entities.Users;
+import com.example.ClutchApi.core.response.CreateUserResponse;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -26,9 +25,9 @@ public class UsersController {
     private UsersService usersService;
 
 
-   @PostMapping("/signup")
-    public ResponseEntity<ApiResponse<Users>> signUp(@RequestBody UserRequest userRequest) {
-        ApiResponse<Users> response = usersService.createUser(userRequest);
+   @PostMapping("/createUser")
+    public ResponseEntity<ApiResponse<CreateUserResponse>> createUser(@RequestBody CreateUserRequest createUseRequest) {
+        ApiResponse<CreateUserResponse> response = usersService.createUser(createUseRequest);
 
         if(!response.isSuccess()) {
             
@@ -40,14 +39,5 @@ public class UsersController {
     }
 
 
-     @PostMapping("/login")
-    public ResponseEntity<ApiResponse<Users>> login(@RequestBody LoginRequest loginRequest) {
-        ApiResponse<Users> response = usersService.login(loginRequest);
-
-        if(response.isSuccess()) {
-            return ResponseEntity.status(HttpStatus.OK).body(response);
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
-        }
-    }
+   
 }

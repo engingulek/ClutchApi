@@ -1,10 +1,9 @@
 package com.example.ClutchApi.core.response;
 
 public enum ErrorMessage {
-    EXIST_EMAIL("Email already exists"),
+    EXIST_ID("User already exists"),
     USER_CREATED("User successfully created"),
-    LOGIN_SUCCESS("Login successful"),
-    LOGIN_FAILED("Email or password incorrect");
+    SUCCESS_FETCH("Data fetched successfully");
 
     private final String text;
 

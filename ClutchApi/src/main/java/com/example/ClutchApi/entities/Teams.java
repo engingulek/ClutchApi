@@ -12,31 +12,30 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "users") // Özel karakterli tablo adı için tırnak
+@Table(name = "teams")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Users {
+public class Teams {
 
-    public Users(String uuid, String nameSurname,  String email) {
-        this.uuid = uuid;
-        this.nameSurname = nameSurname;
-        this.email = email;
+    public Teams(String name, String shortName, String imageUrl) {
+        this.name = name;
+        this.shortName = shortName;
+        this.imageUrl = imageUrl;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
-    private Integer id; 
+    private Integer id;
 
-    @Column(name = "uuid", nullable = false)
-    private String uuid; 
+    @Column(name = "name", nullable = false)
+    private String name;
 
-    @Column(name = "namesurname", nullable = false)
-    private String nameSurname;
+    @Column(name = "short_name")
+    private String shortName;
 
-    @Column(name = "email", nullable = false, unique = true)
-    private String email;
+    @Column(name = "image_url")
+    private String imageUrl;
 }
-
