@@ -2,9 +2,9 @@ package com.example.ClutchApi.core.response;
 
 public class CreatedDataResponse {
         private boolean success;
-    private ErrorMessage message;
+    private MessageType message;
 
-    public CreatedDataResponse(boolean success, ErrorMessage message) {
+    public CreatedDataResponse(boolean success, MessageType message) {
         this.success = success;
         this.message = message;
     }
@@ -13,8 +13,8 @@ public class CreatedDataResponse {
      public boolean isSuccess() { return success; }
     public void setSuccess(boolean success) { this.success = success; }
 
-    public ErrorMessage getMessage() { return message; }
-    public void setMessage(ErrorMessage message) { this.message = message; }
+    public MessageType getMessage() { return message; }
+    public void setMessage(MessageType message) { this.message = message; }
 
 
 }

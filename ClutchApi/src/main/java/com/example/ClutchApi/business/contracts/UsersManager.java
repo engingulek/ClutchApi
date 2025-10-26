@@ -8,7 +8,8 @@ import com.example.ClutchApi.core.mappers.ModelMapperService;
 import com.example.ClutchApi.core.request.CreateUserRequest;
 import com.example.ClutchApi.core.response.ApiResponse;
 import com.example.ClutchApi.core.response.CreateUserResponse;
-import com.example.ClutchApi.core.response.ErrorMessage;
+import com.example.ClutchApi.core.response.MessageType;
+
 import com.example.ClutchApi.dataAccess.UsersRepository;
 import com.example.ClutchApi.entities.Users;
 
@@ -36,13 +37,13 @@ public class UsersManager implements  UsersService {
     boolean isExistsId = this.usersRepository.existsByUuid(users.getUuid());
 
     if(isExistsId){
-        return new ApiResponse<>(false, ErrorMessage.EXIST_ID, null);
+        return new ApiResponse<>(false, MessageType.EXIST_ID, null);
     } else {
         Users createdUser = new Users(createUserRequest.getUuid(), createUserRequest.getNameSurname(),
                                       createUserRequest.getEmail());
         Users savedUser = this.usersRepository.save(createdUser);
         CreateUserResponse createUserResponse = new CreateUserResponse(savedUser.getId());
-        return new ApiResponse<>(true, ErrorMessage.USER_CREATED, createUserResponse);
+        return new ApiResponse<>(true, MessageType.USER_CREATED, createUserResponse);
     }
     }
 

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.ClutchApi.business.abstracts.TeamsService;
 import com.example.ClutchApi.core.mappers.ModelMapperService;
 import com.example.ClutchApi.core.response.ApiResponse;
-import com.example.ClutchApi.core.response.ErrorMessage;
+import com.example.ClutchApi.core.response.MessageType;
 import com.example.ClutchApi.core.response.SelectFavTeam;
 import com.example.ClutchApi.dataAccess.TeamsRepository;
 import com.example.ClutchApi.entities.Teams;
@@ -33,7 +33,7 @@ public class TeamsManager implements TeamsService {
         List<SelectFavTeam> response = favTeams.stream()
             .map(team -> this.modelMapperService.forResponse().map(team, SelectFavTeam.class))
             .toList();
-        return new ApiResponse<>(true, ErrorMessage.SUCCESS_FETCH, response);
+        return new ApiResponse<>(true, MessageType.SUCCESS_FETCH, response);
     }
     
 }

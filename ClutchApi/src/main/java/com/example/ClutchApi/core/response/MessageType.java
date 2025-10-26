@@ -1,6 +1,6 @@
 package com.example.ClutchApi.core.response;
 
-public enum ErrorMessage {
+public enum MessageType {
     EXIST_ID("User already exists"),
     USER_CREATED("User successfully created"),
     SUCCESS_FETCH("Data fetched successfully"),
@@ -10,7 +10,7 @@ public enum ErrorMessage {
 
     private final String text;
 
-    ErrorMessage(String text) {
+    MessageType(String text) {
         this.text = text;
     }
 
