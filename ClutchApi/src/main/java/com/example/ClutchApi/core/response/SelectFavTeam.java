@@ -7,5 +7,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SelectFavTeam {
     private Integer teamId;
-    private String teamName;
+    private String teamUrl;
 }

@@ -3,7 +3,10 @@ package com.example.ClutchApi.core.response;
 public enum ErrorMessage {
     EXIST_ID("User already exists"),
     USER_CREATED("User successfully created"),
-    SUCCESS_FETCH("Data fetched successfully");
+    SUCCESS_FETCH("Data fetched successfully"),
+    DATA_ADD_TO_DATABASE_SUCCESS("Data added to database successfully"),
+    DATA_NOT_ADD_TO_DATABASE("Failed to add data to database"),
+    UUI_ALREADY_EXISTS("UUID already exists in the database");
 
     private final String text;
 
