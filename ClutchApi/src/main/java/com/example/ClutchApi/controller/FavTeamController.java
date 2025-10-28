@@ -24,6 +24,11 @@ public class FavTeamController {
     @PostMapping("/addFavTeam")
     public ResponseEntity<CreatedDataResponse> addFavTeam(@RequestBody FavTeamRequest addFavTeamRequest) {
         CreatedDataResponse response = favTeamService.addFavTeam(addFavTeamRequest);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        if (!response.isSuccess()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+        } else{
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        }
+        
     }
 }
