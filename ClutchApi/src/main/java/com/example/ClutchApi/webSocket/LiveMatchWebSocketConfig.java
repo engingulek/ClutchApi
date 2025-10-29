@@ -10,7 +10,7 @@ import com.example.ClutchApi.handler.LiveMatchWebSocketHandler;
 
 @Configuration
 @EnableWebSocket
-public class WebSocketConfig implements WebSocketConfigurer {
+public class LiveMatchWebSocketConfig implements WebSocketConfigurer {
 
     @Autowired
     private LiveMatchWebSocketHandler liveMatchWebSocketHandler;

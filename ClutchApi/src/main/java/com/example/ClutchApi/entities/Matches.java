@@ -1,5 +1,7 @@
 package com.example.ClutchApi.entities;
 
+import java.time.LocalTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,21 +16,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "live_matches")
+@Table(name = "matches")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class LiveMatch {
-      @Id
+@AllArgsConstructor
+
+public class Matches {
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer matchId;
 
     @Column(nullable = false)
     private int week;
-
-    @Column(length = 10)
-    private String minute;  // "45+2" gibi değerler için string
 
     @ManyToOne
     @JoinColumn(name = "home_team_id", nullable = false)
@@ -38,16 +39,16 @@ public class LiveMatch {
     @JoinColumn(name = "away_team_id", nullable = false)
     private Teams awayTeam;
 
-    @Column(name = "home_team_score", nullable = false)
-    private int homeTeamScore;
-
-    @Column(name = "away_team_score", nullable = false)
-    private int awayTeamScore;
-
     @ManyToOne
     @JoinColumn(name = "stadium_id", nullable = false)
     private Stadium stadium;
 
-    @Column(length = 20, nullable = false)
-    private String match_state;  
+    @Column(nullable = false)
+    private LocalTime matchTime;
+
+    @Column(nullable = false)
+    private boolean isPlayed;
+
+    private Integer homeScore;
+    private Integer awayScore;
 }
